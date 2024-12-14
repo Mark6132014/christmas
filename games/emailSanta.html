@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Santa!</title>
+    <style>
+        html, body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        input {
+            width: 50%;
+        }
+        .emailedContainer {
+            background: rgba(0, 0, 0, 0.541);
+            color: black;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .emailedContainer .message {
+            background: palegoldenrod;
+            height: 80vh;
+            width: 70%;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 8px;
+            border: 10px solid rgb(84, 82, 61);
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+    </style>
+    <link rel="shortcut icon" href="wreath.png">
+</head>
+<body>
+    <div class="emailedContainer" style="display: none;">
+        <div class="message">
+            <p id="msgtxt">
+                Ho ho ho, Email me!
+            </p>
+        </div>
+    </div>
+    <center>
+        <h1>
+            Welcome!
+        </h1>
+        <h2>
+            Send emails to Santa right away!
+        </h2>
+        <hr>
+        <p>
+            What is your name?
+        </p>
+        <br>
+        <input id="name" type="text" placeholder="Name...">
+        <br>
+        <p>
+            Where do you live?
+        </p>
+        <input id="town" type="text" placeholder="Town...">
+        <br>
+        <p>
+            What state do you live?
+        </p>
+        <input id="state" type="text" placeholder="State...">
+        <br>
+        <p>
+            Which country do you live?
+        </p>
+        <select id="countries">
+            <option value="AF">Afghanistan</option> <option value="AL">Albania</option> <option value="DZ">Algeria</option> <option value="AD">Andorra</option> <option value="AO">Angola</option> <option value="AG">Antigua and Barbuda</option> <option value="AR">Argentina</option> <option value="AM">Armenia</option> <option value="AU">Australia</option> <option value="AT">Austria</option> <option value="AZ">Azerbaijan</option> <option value="BS">Bahamas</option> <option value="BH">Bahrain</option> <option value="BD">Bangladesh</option> <option value="BB">Barbados</option> <option value="BY">Belarus</option> <option value="BE">Belgium</option> <option value="BZ">Belize</option> <option value="BJ">Benin</option> <option value="BT">Bhutan</option> <option value="BO">Bolivia</option> <option value="BA">Bosnia and Herzegovina</option> <option value="BW">Botswana</option> <option value="BR">Brazil</option> <option value="BN">Brunei</option> <option value="BG">Bulgaria</option> <option value="BF">Burkina Faso</option> <option value="BI">Burundi</option> <option value="CV">Cabo Verde</option> <option value="KH">Cambodia</option> <option value="CM">Cameroon</option> <option value="CA">Canada</option> <option value="CF">Central African Republic</option> <option value="TD">Chad</option> <option value="CL">Chile</option> <option value="CN">China</option> <option value="CO">Colombia</option> <option value="KM">Comoros</option> <option value="CG">Congo</option> <option value="CR">Costa Rica</option> <option value="HR">Croatia</option> <option value="CU">Cuba</option> <option value="CY">Cyprus</option> <option value="CZ">Czech Republic</option> <option value="DK">Denmark</option> <option value="DJ">Djibouti</option> <option value="DM">Dominica</option> <option value="DO">Dominican Republic</option> <option value="EC">Ecuador</option> <option value="EG">Egypt</option> <option value="SV">El Salvador</option> <option value="GQ">Equatorial Guinea</option> <option value="ER">Eritrea</option> <option value="EE">Estonia</option> <option value="SZ">Eswatini</option> <option value="ET">Ethiopia</option> <option value="FJ">Fiji</option> <option value="FI">Finland</option> <option value="FR">France</option> <option value="GA">Gabon</option> <option value="GM">Gambia</option> <option value="GE">Georgia</option> <option value="DE">Germany</option> <option value="GH">Ghana</option> <option value="GR">Greece</option> <option value="GD">Grenada</option> <option value="GT">Guatemala</option> <option value="GN">Guinea</option> <option value="GW">Guinea-Bissau</option> <option value="GY">Guyana</option> <option value="HT">Haiti</option> <option value="HN">Honduras</option> <option value="HU">Hungary</option> <option value="IS">Iceland</option> <option value="IN">India</option> <option value="ID">Indonesia</option> <option value="IR">Iran</option> <option value="IQ">Iraq</option> <option value="IE">Ireland</option> <option value="IL">Israel</option> <option value="IT">Italy</option> <option value="JM">Jamaica</option> <option value="JP">Japan</option> <option value="JO">Jordan</option> <option value="KZ">Kazakhstan</option> <option value="KE">Kenya</option> <option value="KI">Kiribati</option> <option value="KP">Korea (North)</option> <option value="KR">Korea (South)</option> <option value="KW">Kuwait</option> <option value="KG">Kyrgyzstan</option> <option value="LA">Laos</option> <option value="LV">Latvia</option> <option value="LB">Lebanon</option> <option value="LS">Lesotho</option> <option value="LR">Liberia</option> <option value="LY">Libya</option> <option value="LI">Liechtenstein</option> <option value="LT">Lithuania</option> <option value="LU">Luxembourg</option> <option value="MG">Madagascar</option> <option value="MW">Malawi</option> <option value="MY">Malaysia</option> <option value="MV">Maldives</option> <option value="ML">Mali</option> <option value="MT">Malta</option> <option value="MH">Marshall Islands</option> <option value="MR">Mauritania</option> <option value="MU">Mauritius</option> <option value="MX">Mexico</option> <option value="FM">Micronesia</option> <option value="MD">Moldova</option> <option value="MC">Monaco</option> <option value="MN">Mongolia</option> <option value="ME">Montenegro</option> <option value="MA">Morocco</option> <option value="MZ">Mozambique</option> <option value="MM">Myanmar</option> <option value="NA">Namibia</option> <option value="NR">Nauru</option> <option value="NP">Nepal</option> <option value="NL">Netherlands</option> <option value="NZ">New Zealand</option> <option value="NI">Nicaragua</option> <option value="NE">Niger</option> <option value="NG">Nigeria</option> <option value="MK">North Macedonia</option> <option value="NO">Norway</option> <option value="OM">Oman</option> <option value="PK">Pakistan</option> <option value="PW">Palau</option> <option value="PA">Panama</option> <option value="PG">Papua New Guinea</option> <option value="PY">Paraguay</option> <option value="PE">Peru</option> <option value="PH">Philippines</option> <option value="PL">Poland</option> <option value="PT">Portugal</option> <option value="QA">Qatar</option> <option value="RO">Romania</option> <option value="RU">Russia</option> <option value="RW">Rwanda</option> <option value="KN">Saint Kitts and Nevis</option> <option value="LC">Saint Lucia</option> <option value="VC">Saint Vincent and the Grenadines</option> <option value="WS">Samoa</option> <option value="SM">San Marino</option> <option value="ST">Sao Tome and Principe</option> <option value="SA">Saudi Arabia</option> <option value="SN">Senegal</option> <option value="RS">Serbia</option> <option value="SC">Seychelles</option> <option value="SL">Sierra Leone</option> <option value="SG">Singapore</option> <option value="SK">Slovakia</option> <option value="SI">Slovenia</option> <option value="SB">Solomon Islands</option> <option value="SO">Somalia</option> <option value="US" selected>United States</option> <option value="UK">United Kingdom</option>
+        </select>
+        <br>
+        <p>
+            What do you want for christmas?
+        </p>
+        <input id="gift1" type="text" placeholder="Gift #1...">
+        <br>
+        <input id="gift2" type="text" placeholder="Gift #2...">
+        <br>
+        <input id="gift3" type="text" placeholder="Gift #3...">
+        <hr>
+        <button id="email" type="submit">Email Santa right away!</button>
+    </center>
+    <script>
+        document.getElementById("email").addEventListener("click", () => {
+            alert("Emailed! Please wait...");
+            let name = encodeURIComponent(document.getElementById("name").value);
+                let town = encodeURIComponent(document.getElementById("town").value);
+                let state = encodeURIComponent(document.getElementById("state").value);
+                let country = encodeURIComponent(document.getElementById("countries").value);
+                let gifts = {
+                    gift1: encodeURIComponent(document.getElementById("gift1").value),
+                    gift2: encodeURIComponent(document.getElementById("gift2").value),
+                    gift3: encodeURIComponent(document.getElementById("gift3").value)
+                };
+                let generateCode = `?emailSent=true&name=${name}&town=${town}&state=${state}&country=${country}&gift1=${gifts.gift1}&gift2=${gifts.gift2}&gift3=${gifts.gift3}`;
+                setTimeout(() => {
+                    try {
+                    location.search = generateCode;
+                } catch(error) {
+                    console.error(error);
+                }
+                }, 10000);
+        });
+        /* Message */
+        function getUrlParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const regex = /([^&=]+)=([^&]*)/g;
+    let m;
+    while (m = regex.exec(queryString)) {
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    }
+    return params;
+}
+function returnParam() {
+    const param = getUrlParams();
+    if (param.emailSent == "true") {
+        document.querySelector(".emailedContainer").style.display = "flex";
+    }
+    let message = `
+    Ho, ho, ho! It's me! Santa Claus! It is great to see you, ${param.name}!
+    <br>It is nice to see you in ${param.town}! I love that place, and I love your state, too!
+    <br>Good old ${param.state}! You got a great list happening here! You wanted a ${param.gift1}, a ${param.gift2}, and a ${param.gift3}! Wow!
+    <br>My good elves made this email for me and mostly for you.
+    <br>Ho, ho, ho! Merry Christmas, ${param.name}! I'll see you there in ${param.country}!
+    <br><img height="400" width="500" src="images/signature.jpg"><br><b>From: Santa Claus, North Pole</b>`;
+    document.getElementById("msgtxt").innerHTML = message;
+}
+returnParam();
+    </script>
+</body>
+</html>

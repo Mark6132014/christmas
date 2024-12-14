@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Santa Tracker
+    </title>
+    <link rel="shortcut icon" href="wreath.png">
+</head>
+<body style="background: url('images/map.jpg'); height: 100vh; width: 100%; margin: 0; position: fixed; top: 0; left: 0; background-size: cover;">
+    <img height="40" src="images/location icon.png" id="location">
+    <script>
+        var santaLocate = document.getElementById("location");
+        setTimeout(() => {
+            santaLocate.style.transition = "0.3s ease-in-out";
+            santaLocate.style.position = "absolute";
+        santaLocate.style.top = Math.floor(Math.random()*100).toString() + "%";
+        santaLocate.style.left = Math.floor(Math.random()*100).toString() + "%";
+        }, 500);
+    </script>
+</body>
+</html>

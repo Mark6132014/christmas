@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Am I Naughty Or Nice?
+    </title>
+    <style>
+        html, body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(lime, green);
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <link rel="shortcut icon" href="wreath.png">
+</head>
+<body>
+    <center>
+        <h2>
+            Are you naughty or nice? Let's find out!
+        </h2>
+        <hr>
+        <p>
+            What is your name?:
+        </p>
+        <form action="javascript:results();">
+            <input id="name" type="text" placeholder="Name here..." required>
+            <button type="submit">Reveal Results!</button>
+        </form>
+        <p id="results">
+        </p>
+    </center>
+    <script>
+        var resultsTable = [
+            {
+                personType: "Naughty",
+                results: (reason, name) => { return `
+                <h2>
+                    You are naughty, ${name}
+                    </h2>
+                    <br>
+                    Sorry, but you are on the naughty list, because${reason}. Santa really does not like to hear that!
+                    <br>
+                    But do not worry! You can try again next year!` },
+                reasons: [
+                    " you were disrespectful",
+                    " you were not acting so good!",
+                ]
+            },
+            {
+                personType: "Nice",
+                results: (reason, name) => { return `
+                <h2>
+                    You are nice! Yay, ${name}!
+                    <br>
+                    You were just a very nice kid, ${name}! Santa really loves that. He loves to hear that from you!` },
+                reasons: []
+            }
+        ];
+        function results() {
+            let input = document.querySelector("#name");
+            let randomResult = resultsTable[Math.floor(Math.random()*resultsTable.length)];
+            document.querySelector("#results").innerHTML = randomResult.results(randomResult.reasons[Math.floor(Math.random()*randomResult.reasons.length)], input.value);
+        }
+    </script>
+</body>
+</html>

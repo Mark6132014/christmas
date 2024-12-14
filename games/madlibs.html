@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Mad Libs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #d32f2f;
+        }
+        .madlibs-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .madlibs-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .madlibs-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .madlibs-container button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #d32f2f;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .madlibs-container button:hover {
+            background-color: #b71c1c;
+        }
+        .story {
+            margin-top: 20px;
+        }
+    </style>
+    <link rel="shortcut icon" href="wreath.png">
+</head>
+<body>
+    <div class="madlibs-container">
+        <h1>Christmas Mad Libs</h1>
+        <form id="madlibs-form">
+            <label for="adjective">Adjective</label>
+            <input type="text" id="adjective" name="adjective" required>
+
+            <label for="noun">Noun</label>
+            <input type="text" id="noun" name="noun" required>
+
+            <label for="verb">Verb</label>
+            <input type="text" id="verb" name="verb" required>
+
+            <label for="adjective2">Adjective</label>
+            <input type="text" id="adjective2" name="adjective2" required>
+
+            <label for="plural-noun">Plural Noun</label>
+            <input type="text" id="plural-noun" name="plural-noun" required>
+
+            <label for="place">Place</label>
+            <input type="text" id="place" name="place" required>
+
+            <button type="button" onclick="generateStory()">Generate Story</button>
+        </form>
+
+        <div class="story" id="story"></div>
+    </div>
+
+    <script>
+        function generateStory() {
+            const adjective = document.getElementById('adjective').value;
+            const noun = document.getElementById('noun').value;
+            const verb = document.getElementById('verb').value;
+            const adjective2 = document.getElementById('adjective2').value;
+            const pluralNoun = document.getElementById('plural-noun').value;
+            const place = document.getElementById('place').value;
+
+            const story = `It was a ${adjective} Christmas Eve, and everyone in the ${noun} was excited to ${verb}. The ${adjective2} ${pluralNoun} were hanging on the tree, and the smell of cookies filled the air. Suddenly, a loud noise came from ${place}. What a surprise!`;
+
+            document.getElementById('story').innerText = story;
+        }
+    </script>
+</body>
+</html>

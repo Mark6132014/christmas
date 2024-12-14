@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa's Workshop</title>
+    <link rel="shortcut icon" href="wreath.png">
+    <style>
+        body {
+            background: url("images/workshop.webp");
+            background-size: cover;
+            background-repeat: repeat;
+        }
+        .bio {
+            background: rgba(0, 0, 0, 0.541);
+            color: black;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000000;
+        }
+        @media screen and (max-width: 800px) {
+            .bio {
+                height: 150vh;
+            }
+        }
+        .bio .message {
+            background: palegoldenrod;
+            height: 80vh;
+            width: 70%;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 8px;
+            border: 10px solid rgb(84, 82, 61);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: absolute;
+            top: 8px;
+            left: 15%;
+        }
+        .bio .message .title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .bio .message .close {
+            font-size: 1.5em;
+            font-weight: bolder;
+            float: right;
+            background: transparent;
+            color: black;
+            border: none;
+        }
+        #elf, #gingerbread, #reindeer, #santa {
+            cursor: pointer;
+            transition: 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="bio" style="display: none;">
+        <div class="message">
+            <h2 class="title">
+                The Character
+            </h2>
+            <button class="close" onclick="document.querySelector('.bio').style.display = 'none';">&times;</button>
+            <hr>
+            <p class="about">
+                Who, and what is this character?
+            </p>
+        </div>
+    </div>
+    <img src="images/elf.png" height="200" id="elf">
+    <img src="images/gingerbread man.png" height="200" id="gingerbread">
+    <img src="images/reindeer.png" height="200" id="reindeer">
+    <img src="images/santa.png" height="200" id="santa">
+    <center><p style="color: white; background: rgba(0, 0, 0, 0.541); border-radius: 8px; font-family: Arial, Helvetica, sans-serif; z-index: 5;">Scroll left or right, top to bottom to find some characters.</p></center>
+    <script>
+        var elf = document.getElementById("elf");
+        var gingerbread = document.getElementById("gingerbread");
+        var reindeer = document.getElementById("reindeer");
+        var santa = document.getElementById("santa");
+        var biocontainer = document.querySelector(".bio");
+        var biomessage = biocontainer.querySelector(".message");
+        var characterName = biomessage.querySelector(".title");
+        var characterbio = biomessage.querySelector(".about");
+        function organize(obj) {
+            var topPos = Math.floor(Math.random()*100) + "%";
+            var xPos = Math.floor(Math.random()*100) + "%";
+            obj.style.position = "absolute";
+            obj.style.top = topPos;
+            obj.style.left = xPos;
+        }
+        function about(bio, character) {
+            biocontainer.style.display = "block";
+            characterName.innerHTML = character;
+            characterbio.innerHTML = bio;
+        }
+        organize(elf);
+        organize(gingerbread);
+        organize(reindeer);
+        organize(santa);
+        elf.addEventListener("click", () => {about(`
+            Santa's elves are really hard workers with lots of joy and happiness.
+            <br>The elves make toys and toys for the kids. Elves really help Santa get on his feet with helpers with him.
+            <br>The elves make gifts to family and friends. No matter if they are not related, they will still have a present.
+            <br>Even grandchildren, children, kids, students, and everyone else.`, "The Elf Worker")});
+        gingerbread.addEventListener("click", () => {about(`
+            It is the gingerbread man. The only famous, common christmas cookie ever!
+            <br>A old lady makes a gingerbread man. The gingerbread comes alive and runs away.
+            <br>Then the old lady chases the gingerbread. He ran past a pig, and the pig came running
+            <br>for that gingerbread man, too! They went past a horse, and the horse came running
+            <br>for that gingerbread man, either! They went past a farmer, and the farmer came running
+            <br>for that gingerbread man! They went past a cat, and the cat came running
+            <br>for that gingerbread man! They went past a dog, and the dog came running
+            <br>for that gingerbread man! The cat and dog argued and argued, they went past a baby,
+            <br>and the baby... ate it.`, "The Gingerbread Man")});
+        reindeer.addEventListener("click", () => {about(`
+            Santa's reindeers are a great help for him, with the elves, too. The reindeers flyed and flyed for
+            <br>Christmas to strike! Santa, on his sleigh. With reindeers of Rudolph, Dasher, Dancer, Prancer, Vixen,
+            <br>Comet, Cuped, Donner, and Blitzen were giving presents to all in the whole entire world!
+            <br>Who is the most special reindeer of all? Rudolph! With this red, shiny, bright nose!`, "Rudolph the Red-Nosed Reindeer and Friends")});
+        santa.addEventListener("click", () => {about(`
+            "Ho, ho, ho!" Santa says with cheer. Santa is the most crucial thing of Christmas. Santa Claus
+            <br>gives presents to children. But there is one who can act a little like Santa Claus... a Secret Santa.
+            <br>Santa Claus has reindeers to help him fly abroad into the sky with clouds drove past by from his sleigh.`, "Santa Claus")});
+    </script>
+</body>
+</html>
